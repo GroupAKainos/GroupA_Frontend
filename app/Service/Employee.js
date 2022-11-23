@@ -1,13 +1,12 @@
-const axios = require('axios'); 
+const axios = require('axios');
 
 
 exports.viewjobroles = async () => {
+    try {
+        const results = await axios.get('http://localhost:8080/api/viewjobroles')
+        return results.data
 
-    try{
-    const results = await axios.get('http://localhost:8080/api/viewjobroles')
-    return results.data
-    }catch(e){
+    } catch (e) {
         return new Error('Failed to get job roles')
     }
-    
 }
