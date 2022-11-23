@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th scope="col">Job Role Name</th>
-      <th scope="col">Job Role Responsibility</th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +15,7 @@
 {% if roles and roles.length > 0 %} 
 {% for role in roles %}
 <tr> 
-<td>{{role.jobName}}</td>
-<td>{{role.jobResponsibility}}</td>
+<td><a href="{{role.specification}}">{{role.jobName}}</a></td>
 </tr>
 {% endfor %} 
 
