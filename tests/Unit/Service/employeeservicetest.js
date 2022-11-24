@@ -1,11 +1,8 @@
-var axios = require('axios');
-var MockAdapter = require('axios-mock-adapter');
-
-var chai = require("chai");
+const axios = require('axios');
+const MockAdapter = require('axios-mock-adapter');
+const chai = require("chai");
 const expect = chai.expect;
-
 const EmployeeService = require ('../../../app/Service/Employee')
-
 const jobroles ={
     jobName:"Test",
     jobResponsibility:"Test"
@@ -27,8 +24,6 @@ describe('EmployeeService', function () {
 
           it('should throw exception when 500 error returned from axios when calling viewJobRoles', async () => {
             var mock = new MockAdapter(axios);
-    
-            const data = jobroles;
     
             mock.onGet("http://localhost:8080/api/viewjobroles").reply(500);
     
