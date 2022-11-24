@@ -14,6 +14,10 @@ app.get('/viewroles',  async (req, res) =>  {
     var s = await employee.viewjobroles()
     res.render('viewroles', { roles: s })
 })
+app.get('/viewcapabilities',  async (req, res) =>  {
+    var s = await employee.viewjobcapabilities()
+    res.render('viewcapabilities', { roles: s })
+})
 
 app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
     console.log(`Now listening on port ${port}`);

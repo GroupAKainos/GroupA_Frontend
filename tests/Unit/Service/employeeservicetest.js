@@ -7,6 +7,10 @@ const jobroles ={
     jobName:"Test",
     jobResponsibility:"Test"
 }
+const jobcapabilities ={
+  jobName:"Test Job",
+  capabilityName:"Test Capability"
+}
 
 describe('EmployeeService', function () {
     describe('getViewJobRoles', function () {
@@ -31,6 +35,32 @@ describe('EmployeeService', function () {
             
             expect(error.message).to.equal('Failed to get job roles')
           })
+
+})
+describe('getViewJobCapabilities', function () {
+  it('should return job capabilities', async () => {
+      var mock = new MockAdapter(axios);
+
+      const data = jobcapabilities;
+
+      mock.onGet("http://localhost:8080/api/viewjobcapabilities").reply(200, data);
+
+      var results = await EmployeeService.viewjobcapabilities();
+      
+      expect(results).to.deep.equal(jobcapabilities)
+    })
+
+    it('should throw exception when 500 error returned from axios when calling viewJobCapabilities', async () => {
+      var mock = new MockAdapter(axios);
+
+      const data = jobcapabilities;
+
+      mock.onGet("http://localhost:8080/api/viewjobcapabilities").reply(500);
+
+      var error = await EmployeeService.viewjobcapabilities();
+      
+      expect(error.message).to.equal('Failed to get job capabilities')
+    })
 
 })
 })
