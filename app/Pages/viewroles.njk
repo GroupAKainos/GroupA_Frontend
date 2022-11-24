@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th scope="col">Job Role Name</th>
+      <th scope="col">Job Specification Summary</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
 {% for role in roles %}
 <tr> 
 <td><a href="{{role.specification}}">{{role.jobName}}</a></td>
+<td>{{role.specSummary}}</td>
 </tr>
 {% endfor %} 
 
