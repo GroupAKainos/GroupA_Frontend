@@ -9,7 +9,10 @@ nunjucks.configure('./app/Pages', {
 });
 
 app.set('view engine', 'njk');
-
+app.get('/viewroles',  async (req, res) =>  {
+    var s = await employee.viewjobcapabilities()
+    res.render('viewroles', { roles: s })
+})
 app.get('/viewroles',  async (req, res) =>  {
     var s = await employee.viewjobroles()
     res.render('viewroles', { roles: s })
