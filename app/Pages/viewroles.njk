@@ -2,12 +2,13 @@
 
 {% block content %}
 
+<div class="container">
 <h2>View Roles</h2> 
-
-<table class="table">
+<table class="table" style="border: 1px solid;">
   <thead>
     <tr>
-      <th scope="col">Job Role Name</th>
+      <th scope="col" style="border: 1px solid;">Job Role Name</th>
+      <th scope="col" style="border: 1px solid;">Job Specification Summary</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,8 @@
 {% if roles and roles.length > 0 %} 
 {% for role in roles %}
 <tr> 
-<td>{{role.jobName}}</td>
+<td style="width: 1%;white-space: nowrap;border: 1px solid;"><a href="{{role.specification}}">{{role.jobName}}</a></td>
+<td>{{role.specSummary}}</td>
 </tr>
 {% endfor %} 
 
@@ -24,5 +26,5 @@ There are no job roles.
 {% endif %}
   </tbody>
 </table>
-
+</div>
 {% endblock %} 
